@@ -1,11 +1,11 @@
-package com.prakash.fluperdemo.adapter;
+package com.prakash.sysminddemo.adapter;
 
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Paint;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,36 +15,36 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.prakash.fluperdemo.R;
-import com.prakash.fluperdemo.model.ProductDetails;
-import com.prakash.fluperdemo.ui.view.UpdateTaskActivity;
+import com.prakash.sysminddemo.R;
+import com.prakash.sysminddemo.model.SuperheroDetails;
+import com.prakash.sysminddemo.ui.view.UpdateTaskActivity;
 
 import java.util.List;
 
-public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.TasksViewHolder> {
+public class SuperheroesAdapter extends RecyclerView.Adapter<SuperheroesAdapter.TasksViewHolder> {
 
-    private Context mCtx;
-    private List<ProductDetails> productDetailsList;
+    private final Context mCtx;
+    private final List<SuperheroDetails> superheroDetailsList;
 
-    public ProductsAdapter(Context mCtx, List<ProductDetails> productDetailsList) {
+    public SuperheroesAdapter(Context mCtx, List<SuperheroDetails> superheroDetailsList) {
         this.mCtx = mCtx;
-        this.productDetailsList = productDetailsList;
+        this.superheroDetailsList = superheroDetailsList;
     }
 
     @NonNull
     @Override
-    public TasksViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public TasksViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mCtx).inflate(R.layout.recyclerview_tasks, parent, false);
         return new TasksViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(TasksViewHolder holder, int position) {
-        ProductDetails t = productDetailsList.get(position);
-        holder.textViewProdName.setText(t.getProd_name());
-        holder.textViewProdDesc.setText(t.getProd_desc());
-        holder.textViewRegularPrice.setText(t.getRegular_price());
-        holder.textViewSalePrice.setText(t.getSale_price());
+        SuperheroDetails t = superheroDetailsList.get(position);
+        Log.d("Prakash : ","t.getCharacter_name : "+t.getCharacter_name());
+        holder.textViewSuperheroName.setText(t.getCharacter_name());
+        holder.textViewSuperheroDesc.setText(t.getCharacter_desc());
+
         Bitmap bitmap = null;
         try
         {
@@ -56,6 +56,9 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.TasksV
             //handle exception
         }
 
+        Log.e("Prakash : ", "bitmap : "+t.getPhoto_uri());
+
+
         holder.imgProductPhoto.setImageBitmap(bitmap);
 
 //        if (t.isFinished())
@@ -66,23 +69,19 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.TasksV
 
     @Override
     public int getItemCount() {
-        return productDetailsList.size();
+        return superheroDetailsList.size();
     }
 
     class TasksViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        TextView textViewProdName, textViewProdDesc, textViewRegularPrice, textViewSalePrice;
+        TextView textViewSuperheroName, textViewSuperheroDesc;
         ImageView imgProductPhoto;
 
         public TasksViewHolder(View itemView) {
             super(itemView);
 
-            textViewProdName = itemView.findViewById(R.id.textViewProdName);
-            textViewProdDesc = itemView.findViewById(R.id.textViewProdDesc);
-            textViewRegularPrice = itemView.findViewById(R.id.textViewRegularPrice);
-            textViewRegularPrice.setPaintFlags(textViewRegularPrice.getPaintFlags()
-                    | Paint.STRIKE_THRU_TEXT_FLAG);
-            textViewSalePrice = itemView.findViewById(R.id.textViewSalePrice);
+            textViewSuperheroName = itemView.findViewById(R.id.textViewSuperheroName);
+            textViewSuperheroDesc = itemView.findViewById(R.id.textViewSuperheroDesc);
 
             imgProductPhoto = itemView.findViewById(R.id.imgViewProd);
 
@@ -91,10 +90,10 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.TasksV
 
         @Override
         public void onClick(View view) {
-            ProductDetails productDetails = productDetailsList.get(getAdapterPosition());
+            SuperheroDetails superheroDetails = superheroDetailsList.get(getAdapterPosition());
 
             Intent intent = new Intent(mCtx, UpdateTaskActivity.class);
-            intent.putExtra("products", productDetails);
+            intent.putExtra("superheroes", superheroDetails);
 
             mCtx.startActivity(intent);
         }
