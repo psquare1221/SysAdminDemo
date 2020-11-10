@@ -38,8 +38,7 @@
             android:src="@drawable/add"
             app:fabSize="auto"
             tools:targetApi="lollipop"
-            android:layout_alignParentEnd="true"
-            android:contentDescription="@string/fab" />
+            android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
 </layout>
