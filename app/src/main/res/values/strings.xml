@@ -1,19 +1,20 @@
 <resources>
-    <string name="app_name">FluperDemo</string>
+    <string name="app_name">SysMind</string>
     <string name="save">Save</string>
-    <string name="please_enter_product_s_sale_price">Please Enter Product\'s Sale Price</string>
-    <string name="product_description">Product Description</string>
-    <string name="product_name">Product Name</string>
-    <string name="regular_price">Regular Price</string>
-    <string name="sale_price">Sale Price</string>
-    <string name="please_enter_product_name">Please Enter Product Name</string>
+    <string name="character_description">Character Description</string>
+    <string name="product_name">Superhero Name</string>
+
+    <string name="please_enter_character_name">Please Enter Character Name</string>
     <string name="please_enter_product_s_regular_price">Please Enter Product\'s Regular Price</string>
     <string name="update">Update</string>
     <string name="delete">Delete</string>
-    <string name="update_product_details">Update Product Details</string>
-    <string name="product_description_needed">Product Description Needed</string>
-    <string name="fluper_demo_app">Fluper Demo App</string>
+    <string name="delete_superhero_details">Delete Superhero Details</string>
+    <string name="character_description_needed">Character Description Needed</string>
+    <string name="sysmind_demo_app">SysMind Demo App</string>
     <string name="image_logo">Image LOGO</string>
     <string name="fullimage">FullImage</string>
-    <string name="list_of_products">List of Products</string>
+    <string name="list_of_marvels">List of Marvel Characters</string>
+    <string name="users_image">Users Image</string>
+    <string name="fab">fab</string>
+    <string name="image_view_add_screen">image view add screen</string>
 </resources>

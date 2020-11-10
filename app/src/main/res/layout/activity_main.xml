@@ -8,7 +8,6 @@
         android:layout_height="match_parent"
         android:padding="8dp"
         android:background="@drawable/background"
-
         tools:context=".ui.view.MainActivity">
 
         <TextView
@@ -20,7 +19,7 @@
             android:layout_margin="10dp"
             android:gravity="center"
             android:textColor="@android:color/black"
-            android:text="@string/list_of_products"/>
+            android:text="@string/list_of_marvels"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_tasks"
@@ -36,12 +35,11 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:layout_margin="8dp"
-            android:backgroundTint="@color/colorPrimaryDark"
-            android:src="@drawable/add_products"
-            android:tint="@color/colorLight"
+            android:src="@drawable/add"
             app:fabSize="auto"
             tools:targetApi="lollipop"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:contentDescription="@string/fab" />
 
     </RelativeLayout>
 </layout>
